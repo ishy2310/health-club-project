@@ -27,3 +27,6 @@ class ClassSession(Base):
     fitness_class: Mapped["GroupFitnessClass"] = relationship(back_populates="sessions")
     trainer: Mapped["Trainer"] = relationship(backref="class_sessions")
     room: Mapped["Room"] = relationship(back_populates="class_sessions")
+
+    def __repr__(self):
+        return f"<ClassSession {self.session_id} class={self.class_id} {self.date} {self.start_time}>"
