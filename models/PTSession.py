@@ -1,7 +1,7 @@
 import enum
 from datetime import datetime
 
-from sqlalchemy import DateTime, Enum, ForeignKey, Index
+from sqlalchemy import DateTime, Enum, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .Base import Base
@@ -22,10 +22,11 @@ class PTSession(Base):
     end_date: Mapped[datetime] = mapped_column(DateTime, nullable = False)
     status: Mapped[Status] = mapped_column(Enum(Status), default = Status.BOOKED, nullable = False)
 
+
+
     member: Mapped["Member"] = relationship(backref = "pt_sessions")
     trainer: Mapped["Trainer"] = relationship(backref="pt_sessions")
     room: Mapped["Room"] = relationship(back_populates="pt_sessions")
-    line_items: Mapped[list["BillLineItem"]] = relationship(back_populates="pt_session")
     
     def __repr__(self):
         return f"<PTSession {self.pt_id} {self.start_time} {self.status.value}>"
