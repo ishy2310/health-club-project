@@ -3,7 +3,7 @@ import enum
 from sqlalchemy import DateTime, Enum, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from .Base import Base
+from db import Base
 
 class Type(enum.Enum):
 	STUDIO = "studio"
@@ -19,6 +19,7 @@ class Room(Base):
 
 	pt_sessions: Mapped[list["PTSession"]] = relationship(back_populates="room")
 	class_sessions: Mapped[list["ClassSession"]] = relationship(back_populates="room")
+	equipment: Mapped[list["Equipment"]] = relationship(back_populates="room")
 
 	def __repr__(self):
 		return f"<Room {self.room_id} {self.name!r}>"

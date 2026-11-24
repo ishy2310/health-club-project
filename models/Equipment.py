@@ -5,17 +5,17 @@ from datetime import date, time
 from sqlalchemy import Date, Time, Enum, ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from .Base import Base
+from db import Base
 
 class Status(enum.Enum):
 	OPERATIONAL = "operational"
 	NON_FUNCTIONAL = "non functional"
 	UNDER_REPAIR= "under repair"
 
-class Equipement(Base):
-	__tablename__ = "equipements"
+class Equipment(Base):
+	__tablename__ = "equipment"
 
-	equipement_id: Mapped[int] = mapped_column(primary_key = True)
+	equipment_id: Mapped[int] = mapped_column(primary_key = True)
 	room_id: Mapped[int] = mapped_column(ForeignKey("rooms.room_id"), nullable = False)
 	status: Mapped[Status] = mapped_column(Enum(Status), default = Status.OPERATIONAL, nullable = False)
 	name: Mapped[str] = mapped_column(String(30),unique=True, nullable = False)

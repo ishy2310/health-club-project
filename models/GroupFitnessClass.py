@@ -1,7 +1,7 @@
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from .Base import Base
+from db import Base
 
 class GroupFitnessClass(Base):
 	__tablename__ = "fitness_classes"
