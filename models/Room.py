@@ -18,6 +18,7 @@ class Room(Base):
 	name: Mapped[str] = mapped_column(String(30),unique=True)
 
 	pt_sessions: Mapped[list["PTSession"]] = relationship(back_populates="room")
+	class_sessions: Mapped[list["ClassSession"]] = relationship(back_populates="room")
 
 	def __repr__(self):
 		return f"<Room {self.room_id} {self.name!r}>"
