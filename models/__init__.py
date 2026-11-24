@@ -3,3 +3,5 @@ from .FitnessGoal import FitnessGoal
 from .HealthMetric import HealthMetric
 from .Trainer import Trainer
 from .Admin import Admin
+from .ClassEnrollment import ClassEnrollment
+from .MaintenanceLog import MaintenanceLog
