@@ -6,7 +6,7 @@ from decimal import Decimal
 from sqlalchemy import Date, Enum, ForeignKey, Numeric, CheckConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from .Base import Base
+from db import Base
 
 class Status(enum.Enum):
 	PAID = "paid"

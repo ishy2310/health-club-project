@@ -5,7 +5,7 @@ from datetime import date, time
 from sqlalchemy import Time, Enum, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from .Base import Base
+from db import Base
 
 class WeekDay(enum.Enum):
 	MONDAY = "monday"

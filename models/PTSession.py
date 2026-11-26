@@ -4,7 +4,7 @@ from datetime import date, time
 from sqlalchemy import Date, Time, Enum, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from .Base import Base
+from db import Base
 
 class Status(enum.Enum):
     BOOKED = "booked"
