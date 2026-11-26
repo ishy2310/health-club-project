@@ -17,7 +17,7 @@ class PTSession(Base):
     pt_id: Mapped[int] = mapped_column(primary_key=True)
     member_id: Mapped[int] = mapped_column(ForeignKey("members.member_id"), nullable = False)
     trainer_id: Mapped[int] = mapped_column(ForeignKey("trainers.trainer_id"), nullable = False)
-    room_id: Mapped[int] = mapped_column(ForeignKey("rooms.room_id"), nullable = False)
+    room_id: Mapped[int] = mapped_column(ForeignKey("rooms.room_id"))
     date: Mapped[date] = mapped_column(Date, nullable=False)
     start_time: Mapped[time] = mapped_column(Time, nullable=False)
     end_time: Mapped[time] = mapped_column(Time, nullable=False)

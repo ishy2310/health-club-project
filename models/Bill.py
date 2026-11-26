@@ -21,7 +21,7 @@ class Bill(Base):
 
 	bill_id: Mapped[int] = mapped_column(primary_key = True)
 	member_id: Mapped[int] = mapped_column(ForeignKey("members.member_id"), nullable = False)
-	status: Mapped[Status] = mapped_column(Enum(Status), nullable = False)
+	status: Mapped[Status] = mapped_column(Enum(Status),default = Status.PENDING, nullable = False)
 	total: Mapped[Decimal] = mapped_column(Numeric(10, 2), default=0, nullable=False)
 	date: Mapped[Date] = mapped_column(Date, nullable = False)
 
