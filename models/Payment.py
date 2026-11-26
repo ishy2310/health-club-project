@@ -28,7 +28,7 @@ class Payment(Base):
     status: Mapped[Status] = mapped_column(Enum(Status), default=Status.PENDING, nullable=False)
     date: Mapped[Date] = mapped_column(Date, server_default=func.now(), nullable=False)
     amount: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False)
-    method: Mapped[Method] = mapped_column(Enum(Method), nullable = Flase)
+    method: Mapped[Method] = mapped_column(Enum(Method), nullable = False)
 
     bill: Mapped["Bill"] = relationship(back_populates="payments")
 

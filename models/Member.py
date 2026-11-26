@@ -27,5 +27,7 @@ class Member(Base):
         back_populates="member", cascade="all, delete-orphan"
     )
 
+    bills: Mapped[list["Bill"]] = relationship(back_populates="member")
+
     def __repr__(self):
         return f"<Member {self.member_id} {self.first_name} {self.last_name}>"
