@@ -18,9 +18,9 @@ class ClassSession(Base):
     class_id: Mapped[int] = mapped_column(ForeignKey("fitness_classes.class_id"), nullable = False)
     trainer_id: Mapped[int] = mapped_column(ForeignKey("trainers.trainer_id"), nullable = True)
     room_id: Mapped[int] = mapped_column(ForeignKey("rooms.room_id"), nullable = True)
-    date: Mapped[Date] = mapped_column(Date,  nullable = True)
-    start_time: Mapped[time] = mapped_column(Time,  nullable = True)
-    end_time: Mapped[time] = mapped_column(Time,  nullable = True)
+    date: Mapped[date] = mapped_column(Date, nullable=True)
+    start_time: Mapped[time] = mapped_column(Time, nullable=True)
+    end_time: Mapped[time] = mapped_column(Time, nullable=True)
     capacity: Mapped[int] = mapped_column(nullable = False)
     class_session_status: Mapped[CapacityStatus] = mapped_column(Enum(CapacityStatus), default = CapacityStatus.OPEN, nullable = False)
 
